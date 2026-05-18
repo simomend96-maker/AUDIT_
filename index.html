@@ -7,660 +7,189 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --green: #00a085;
-    --green-dark: #008a72;
-    --green-light: #e6f7f4;
-    --dark: #242727;
-    --cream: #f7f2ed;
-    --yellow: #ffc859;
-    --orange: #f27d60;
-    --lime: #c4d765;
-    --blue: #8b9fdc;
-    --soft-peach: #f4e0c1;
-    --soft-coral: #eebcb3;
-    --soft-sage: #d5e0ae;
-    --soft-blue: #c2cbea;
-    --gray: #6b7280;
-    --gray-light: #e5e7eb;
-    --white: #ffffff;
+    --green: #00a085; --green-dark: #008a72; --green-light: #e6f7f4;
+    --dark: #242727; --cream: #f7f2ed; --yellow: #ffc859;
+    --orange: #f27d60; --lime: #c4d765; --blue: #8b9fdc;
+    --gray: #6b7280; --gray-light: #e5e7eb;
   }
-
-  body {
-    font-family: 'Figtree', sans-serif;
-    background: #ece8e3;
-    color: var(--dark);
-    min-height: 100vh;
-    padding: 0;
-  }
+  body { font-family: 'Figtree', sans-serif; background: #ece8e3; color: var(--dark); }
 
   /* TOOLBAR */
-  .toolbar {
-    background: var(--dark);
-    color: white;
-    padding: 12px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .toolbar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-  }
-  .toolbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .toolbar-logo-icon {
-    width: 24px;
-    height: 24px;
-  }
-  .toolbar-brand span {
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--green);
-  }
+  .toolbar { background: var(--dark); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; z-index: 100; }
+  .toolbar-left { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.6); }
+  .toolbar-brand { display: flex; align-items: center; gap: 8px; }
+  .toolbar-brand span { font-weight: 700; font-size: 15px; color: var(--green); }
   .toolbar-sep { color: rgba(255,255,255,0.2); }
-  .toolbar-right {
-    display: flex;
-    gap: 10px;
-  }
-  .btn {
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-family: 'Figtree', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all 0.15s;
-  }
-  .btn-outline {
-    background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: white;
-  }
+  .toolbar-right { display: flex; gap: 10px; }
+  .btn { padding: 8px 18px; border-radius: 6px; font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
+  .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.25); color: white; }
   .btn-outline:hover { border-color: rgba(255,255,255,0.5); }
-  .btn-primary {
-    background: var(--green);
-    color: white;
-  }
+  .btn-primary { background: var(--green); color: white; }
   .btn-primary:hover { background: var(--green-dark); }
 
   /* PAGE */
-  .page-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 32px 16px 64px;
-  }
-
-  .page {
-    width: 794px;
-    background: white;
-    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
-  }
+  .page-wrapper { display: flex; justify-content: center; padding: 32px 16px 64px; }
+  .page { width: 794px; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.12); }
 
   /* COVER */
-  .cover {
-    background: var(--dark);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .cover-top {
-    background: var(--green);
-    padding: 28px 48px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .cover-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .logo-icon {
-    width: 42px;
-    height: 42px;
-  }
-  .logo-text {
-    font-size: 22px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: -0.5px;
-  }
-  .cover-date {
-    font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    font-weight: 500;
-  }
+  .cover { background: var(--dark); }
+  .cover-top { background: var(--green); padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .cover-logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 40px; height: 40px; }
+  .logo-text { font-size: 22px; font-weight: 700; color: white; letter-spacing: -0.5px; }
+  .cover-date { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .cover-date input { background: transparent; border: none; border-bottom: 1px dashed rgba(255,255,255,0.4); color: rgba(255,255,255,0.9); font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 500; outline: none; width: 100px; text-align: right; }
 
-  .cover-body {
-    padding: 44px 48px 40px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 32px;
-  }
-  .cover-titles {
-    flex: 1;
-  }
-  .cover-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    color: var(--green);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .cover-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: white;
-    line-height: 1.15;
-    margin-bottom: 8px;
-    letter-spacing: -1px;
-  }
-  .cover-subtitle {
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-    margin-bottom: 28px;
-  }
-  .clinic-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .clinic-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .clinic-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    flex-shrink: 0;
-  }
-  .clinic-label {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    width: 60px;
-  }
-  .clinic-val {
-    font-size: 14px;
-    color: white;
-    font-weight: 600;
-    border: none;
-    background: transparent;
-    font-family: 'Figtree', sans-serif;
-    outline: none;
-    border-bottom: 1px dashed rgba(255,255,255,0.2);
-    min-width: 180px;
-    padding: 2px 4px;
-    color: white;
-    transition: border-color 0.2s;
-  }
+  .cover-body { padding: 36px 48px 24px; display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; }
+  .cover-titles { flex: 1; }
+  .cover-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--green); text-transform: uppercase; margin-bottom: 10px; }
+  .cover-title { font-size: 30px; font-weight: 800; color: white; line-height: 1.15; margin-bottom: 6px; letter-spacing: -1px; }
+  .cover-subtitle { font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 400; margin-bottom: 24px; }
+  .clinic-info { display: flex; flex-direction: column; gap: 8px; }
+  .clinic-row { display: flex; align-items: center; gap: 10px; }
+  .clinic-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .clinic-label { font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; width: 60px; }
+  .clinic-val { font-size: 14px; color: white; font-weight: 600; border: none; background: transparent; font-family: 'Figtree', sans-serif; outline: none; border-bottom: 1px dashed rgba(255,255,255,0.2); min-width: 200px; padding: 2px 4px; transition: border-color 0.2s; }
   .clinic-val:focus { border-bottom-color: var(--green); }
-  .clinic-val::placeholder { color: rgba(255,255,255,0.25); }
+  .clinic-val::placeholder { color: rgba(255,255,255,0.2); }
 
   /* SCORE BADGE */
-  .score-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--green);
-    background: rgba(0,160,133,0.1);
-    flex-shrink: 0;
-  }
-  .score-num {
-    font-size: 38px;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-  .score-num input {
-    width: 80px;
-    font-size: 38px;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    letter-spacing: -2px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-family: 'Figtree', sans-serif;
-    text-align: center;
-  }
-  .score-denom {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 500;
-    margin-top: 2px;
-  }
-  .score-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: var(--green);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+  .score-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--green); background: rgba(0,160,133,0.1); flex-shrink: 0; }
+  .score-num input { width: 80px; font-size: 38px; font-weight: 800; color: white; background: transparent; border: none; outline: none; font-family: 'Figtree', sans-serif; text-align: center; letter-spacing: -2px; }
+  .score-denom { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; margin-top: 2px; }
+  .score-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--green); text-transform: uppercase; margin-top: 4px; }
 
-  .cover-bottom {
-    padding: 16px 48px 32px;
-    display: flex;
-    gap: 10px;
-  }
-  .cover-tag {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 11px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
+  /* CLINIC LOGO */
+  .clinic-logo-area { padding: 0 48px 28px; display: flex; align-items: center; gap: 16px; }
+  .logo-drop { width: 90px; height: 90px; border-radius: 10px; border: 2px dashed rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; overflow: hidden; background: rgba(255,255,255,0.04); transition: border-color 0.2s; position: relative; }
+  .logo-drop:hover { border-color: rgba(255,255,255,0.4); }
+  .logo-drop img { width: 100%; height: 100%; object-fit: contain; padding: 8px; display: none; }
+  .logo-drop-hint { display: flex; flex-direction: column; align-items: center; gap: 4px; pointer-events: none; }
+  .logo-drop-hint svg { opacity: 0.3; }
+  .logo-drop-hint span { font-size: 9px; color: rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 0.5px; text-align: center; line-height: 1.4; }
+  .logo-meta { display: flex; flex-direction: column; gap: 3px; }
+  .logo-meta-label { font-size: 11px; color: rgba(255,255,255,0.35); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .logo-meta-sub { font-size: 12px; color: rgba(255,255,255,0.2); }
+  #removeLogo { display: none; margin-top: 6px; background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: rgba(255,255,255,0.35); font-family: 'Figtree', sans-serif; font-size: 11px; padding: 3px 10px; cursor: pointer; }
+  #removeLogo:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.6); }
+
+  .cover-bottom { padding: 0 48px 28px; display: flex; gap: 10px; }
+  .cover-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 500; }
 
   /* INTRO BAR */
-  .intro-bar {
-    background: var(--cream);
-    padding: 20px 48px;
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid #e5dfd8;
-  }
-  .intro-stat {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    position: relative;
-  }
-  .intro-stat:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 32px;
-    background: #d5cec7;
-  }
-  .intro-stat-num {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--green);
-    letter-spacing: -1px;
-  }
-  .intro-stat-num input {
-    width: 60px;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--green);
-    letter-spacing: -1px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed var(--green);
-    outline: none;
-    font-family: 'Figtree', sans-serif;
-    text-align: center;
-  }
-  .intro-stat-label {
-    font-size: 11px;
-    color: var(--gray);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-align: center;
-  }
+  .intro-bar { background: var(--cream); padding: 20px 48px; display: flex; border-bottom: 1px solid #e5dfd8; }
+  .intro-stat { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; }
+  .intro-stat:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 32px; background: #d5cec7; }
+  .intro-stat-num { font-size: 22px; font-weight: 800; color: var(--green); display: flex; align-items: baseline; gap: 2px; }
+  .intro-stat-num input { width: 40px; font-size: 22px; font-weight: 800; color: var(--green); background: transparent; border: none; border-bottom: 1px dashed var(--green); outline: none; font-family: 'Figtree', sans-serif; text-align: center; }
+  .intro-stat-denom { font-size: 13px; font-weight: 500; color: #9ca3af; }
+  .intro-stat-label { font-size: 11px; color: var(--gray); font-weight: 500; text-align: center; }
 
-  /* SECTIONS */
-  .sections {
-    padding: 40px 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-
-  .section {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #e8e3dd;
-  }
-
-  .section-header {
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .section-header-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .section-num {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
-    flex-shrink: 0;
-  }
-  .section-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -0.3px;
-  }
-  .section-max {
-    font-size: 12px;
-    font-weight: 500;
-    opacity: 0.7;
-    margin-top: 1px;
-  }
-  .section-score-box {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: white;
-    border-radius: 8px;
-    padding: 6px 12px;
-    min-width: 90px;
-    justify-content: center;
-  }
-  .section-score-input {
-    width: 28px;
-    font-size: 20px;
-    font-weight: 800;
-    background: transparent;
-    border: none;
-    border-bottom: 1.5px dashed rgba(0,0,0,0.2);
-    outline: none;
-    font-family: 'Figtree', sans-serif;
-    text-align: center;
-    color: var(--dark);
-  }
-  .section-score-sep {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgba(0,0,0,0.3);
-  }
-  .section-score-max {
-    font-size: 16px;
-    font-weight: 700;
-    color: rgba(0,0,0,0.5);
-  }
-
-  .section-body {
-    background: white;
-    padding: 20px 24px;
-  }
-
-  /* PROGRESS BAR */
-  .progress-wrap {
-    margin-bottom: 20px;
-  }
-  .progress-track {
-    height: 6px;
-    background: var(--gray-light);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 0.4s ease;
-  }
-
-  /* CHECKLIST */
-  .checklist {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .check-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    background: #fafaf9;
-    border: 1px solid #f0ece8;
-    transition: background 0.15s;
-    cursor: pointer;
-    user-select: none;
-  }
-  .check-row:hover { background: #f5f1ed; }
-  .check-row.checked { background: var(--green-light); border-color: #b2e4d8; }
-  .check-row.partial { background: #fffbf0; border-color: #fde68a; }
-  .check-row.missing { background: #fff5f5; border-color: #fecaca; }
-
-  .check-icon {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    border: 2px solid var(--gray-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 12px;
-    font-weight: 700;
-    transition: all 0.15s;
-  }
-  .checked .check-icon {
-    background: var(--green);
-    border-color: var(--green);
-    color: white;
-  }
-  .partial .check-icon {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: white;
-  }
-  .missing .check-icon {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: white;
-  }
-
-  .check-text {
-    flex: 1;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--dark);
-  }
-  .check-badge {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 9px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
-  }
-  .checked .check-badge { background: var(--green); color: white; }
-  .partial .check-badge { background: var(--yellow); color: #7a5a00; }
-  .missing .check-badge { background: var(--orange); color: white; }
-
-  .check-note {
-    width: 100%;
-    margin-top: 6px;
-    margin-left: 34px;
-    font-size: 12px;
-    font-weight: 400;
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed var(--gray-light);
-    outline: none;
-    font-family: 'Figtree', sans-serif;
-    color: var(--gray);
-    display: none;
-    width: calc(100% - 34px);
-    padding: 2px 0;
-  }
-  .check-note.visible { display: block; }
-  .check-note::placeholder { color: #c4bfbb; }
-
-  /* COLORS PER SECTION */
-  .s1 .section-header { background: #e6f7f4; }
-  .s1 .section-num { color: var(--green); }
-  .s1 .progress-fill { background: var(--green); }
-
-  .s2 .section-header { background: #fff8ec; }
-  .s2 .section-num { color: #b45309; }
-  .s2 .progress-fill { background: var(--yellow); }
-
-  .s3 .section-header { background: #f0f4ff; }
-  .s3 .section-num { color: #4338ca; }
-  .s3 .progress-fill { background: var(--blue); }
-
-  .s4 .section-header { background: #f5f9ec; }
-  .s4 .section-num { color: #4d7c0f; }
-  .s4 .progress-fill { background: var(--lime); }
-
-  /* NOTES SECTION */
-  .notes-section {
-    padding: 0 48px 40px;
-  }
-  .notes-box {
-    border: 1px solid #e8e3dd;
-    border-radius: 12px;
-    padding: 20px 24px;
-    background: var(--cream);
-  }
-  .notes-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .notes-title::before {
-    content: '';
-    width: 4px;
-    height: 16px;
-    background: var(--orange);
-    border-radius: 2px;
-    display: block;
-  }
-  .notes-textarea {
-    width: 100%;
-    min-height: 90px;
-    font-family: 'Figtree', sans-serif;
-    font-size: 13.5px;
-    color: var(--dark);
-    background: white;
-    border: 1px solid #e0dbd5;
-    border-radius: 8px;
-    padding: 12px 14px;
-    resize: vertical;
-    outline: none;
-    line-height: 1.6;
-  }
-  .notes-textarea:focus { border-color: var(--green); }
-  .notes-textarea::placeholder { color: #c4bfbb; }
-
-  /* FOOTER */
-  .doc-footer {
-    background: var(--dark);
-    padding: 22px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .footer-brand-text {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--green);
-  }
-  .footer-note {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-  }
-
-  /* LEGEND */
-  .legend {
-    padding: 0 48px 12px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-  .legend-label {
-    font-size: 11px;
-    color: var(--gray);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--gray);
-    cursor: pointer;
-  }
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
+  /* LEGEND — screen only */
+  .legend { padding: 24px 48px 8px; display: flex; gap: 16px; align-items: center; }
+  .legend-label { font-size: 11px; color: var(--gray); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
   .ld-ok { background: var(--green); }
   .ld-partial { background: var(--yellow); }
   .ld-missing { background: var(--orange); }
 
+  /* SECTIONS */
+  .sections { padding: 24px 48px 40px; display: flex; flex-direction: column; gap: 28px; }
+  .section { border-radius: 12px; overflow: hidden; border: 1px solid #e8e3dd; }
+  .section-header { padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .section-header-left { display: flex; align-items: center; gap: 14px; }
+  .section-num { width: 30px; height: 30px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+  .section-title { font-size: 15px; font-weight: 700; color: var(--dark); letter-spacing: -0.3px; }
+  .section-max { font-size: 12px; font-weight: 500; opacity: 0.7; margin-top: 1px; }
+  .section-score-box { display: flex; align-items: center; gap: 4px; background: white; border-radius: 8px; padding: 5px 12px; min-width: 86px; justify-content: center; }
+  .section-score-input { width: 28px; font-size: 20px; font-weight: 800; background: transparent; border: none; border-bottom: 1.5px dashed rgba(0,0,0,0.2); outline: none; font-family: 'Figtree', sans-serif; text-align: center; color: var(--dark); }
+  .section-score-sep { font-size: 15px; font-weight: 400; color: rgba(0,0,0,0.3); }
+  .section-score-max { font-size: 15px; font-weight: 700; color: rgba(0,0,0,0.45); }
+  .section-body { background: white; padding: 18px 22px; }
+  .progress-wrap { margin-bottom: 16px; }
+  .progress-track { height: 5px; background: var(--gray-light); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+
+  /* CHECKLIST */
+  .checklist { display: flex; flex-direction: column; gap: 8px; }
+  .check-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; background: #fafaf9; border: 1px solid #f0ece8; cursor: pointer; user-select: none; transition: background 0.15s; flex-wrap: wrap; }
+  .check-row:hover { background: #f5f1ed; }
+  .check-row.checked { background: var(--green-light); border-color: #b2e4d8; }
+  .check-row.partial { background: #fffbf0; border-color: #fde68a; }
+  .check-row.missing { background: #fff5f5; border-color: #fecaca; }
+  .check-icon { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--gray-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 700; transition: all 0.15s; }
+  .checked .check-icon { background: var(--green); border-color: var(--green); color: white; }
+  .partial .check-icon { background: var(--yellow); border-color: var(--yellow); color: white; }
+  .missing .check-icon { background: var(--orange); border-color: var(--orange); color: white; }
+  .check-text { flex: 1; font-size: 13.5px; font-weight: 500; color: var(--dark); }
+  .check-badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .checked .check-badge { background: var(--green); color: white; }
+  .partial .check-badge { background: var(--yellow); color: #7a5a00; }
+  .missing .check-badge { background: var(--orange); color: white; }
+  .check-note { display: none; width: calc(100% - 34px); margin-left: 34px; font-size: 12px; background: transparent; border: none; border-bottom: 1px dashed var(--gray-light); outline: none; font-family: 'Figtree', sans-serif; color: var(--gray); padding: 2px 0; }
+  .check-note.visible { display: block; }
+  .check-note::placeholder { color: #c4bfbb; }
+
+  /* SECTION COLORS */
+  .s1 .section-header { background: #e6f7f4; }
+  .s1 .section-num { color: var(--green); }
+  .s1 .progress-fill { background: var(--green); }
+  .s2 .section-header { background: #fff8ec; }
+  .s2 .section-num { color: #b45309; }
+  .s2 .progress-fill { background: var(--yellow); }
+  .s3 .section-header { background: #f0f4ff; }
+  .s3 .section-num { color: #4338ca; }
+  .s3 .progress-fill { background: var(--blue); }
+  .s4 .section-header { background: #f5f9ec; }
+  .s4 .section-num { color: #4d7c0f; }
+  .s4 .progress-fill { background: var(--lime); }
+
+  /* NOTES */
+  .notes-section { padding: 0 48px 40px; }
+  .notes-box { border: 1px solid #e8e3dd; border-radius: 12px; padding: 20px 24px; background: var(--cream); }
+  .notes-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .notes-title::before { content: ''; width: 4px; height: 16px; background: var(--orange); border-radius: 2px; display: block; }
+  .notes-textarea { width: 100%; min-height: 90px; font-family: 'Figtree', sans-serif; font-size: 13.5px; color: var(--dark); background: white; border: 1px solid #e0dbd5; border-radius: 8px; padding: 12px 14px; resize: vertical; outline: none; line-height: 1.6; }
+  .notes-textarea:focus { border-color: var(--green); }
+  .notes-textarea::placeholder { color: #c4bfbb; }
+
+  /* FOOTER */
+  .doc-footer { background: var(--dark); padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-brand-text { font-size: 13px; font-weight: 700; color: var(--green); }
+  .footer-note { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; }
+
   /* PRINT */
   @media print {
-    body { background: white; }
-    .toolbar { display: none; }
+    body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toolbar { display: none !important; }
+    .legend { display: none !important; }
+    .logo-drop-hint { display: none !important; }
+    #removeLogo { display: none !important; }
+    .logo-meta-sub { display: none !important; }
+    .check-note { border-bottom: none; }
     .page-wrapper { padding: 0; }
     .page { box-shadow: none; width: 100%; }
     .check-row { break-inside: avoid; }
     .section { break-inside: avoid; }
+    .notes-section { break-inside: avoid; }
+    input, textarea { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .clinic-val { border-bottom: none; }
+    .section-score-input { border-bottom: none; }
+    .score-num input { border: none; }
+    .intro-stat-num input { border-bottom: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- TOOLBAR -->
+<!-- TOOLBAR (screen only) -->
 <div class="toolbar">
   <div class="toolbar-left">
     <div class="toolbar-brand">
-      <svg class="toolbar-logo-icon" viewBox="0 0 40 40" fill="none">
+      <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
         <path d="M20 4 L23.5 14.5 L34 11 L27 20 L34 29 L23.5 25.5 L20 36 L16.5 25.5 L6 29 L13 20 L6 11 L16.5 14.5 Z" fill="#00a085"/>
         <path d="M13 21 L18 27 L28 14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -671,16 +200,16 @@
   </div>
   <div class="toolbar-right">
     <button class="btn btn-outline" onclick="resetAll()">↺ Reset</button>
-    <button class="btn btn-primary" onclick="window.print()">⬇ Stampa / Salva PDF</button>
+    <button class="btn btn-primary" onclick="window.print()">⬇ Salva PDF</button>
   </div>
 </div>
 
-<!-- DOCUMENT -->
 <div class="page-wrapper">
 <div class="page">
 
   <!-- COVER -->
   <div class="cover">
+
     <div class="cover-top">
       <div class="cover-logo">
         <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
@@ -690,7 +219,7 @@
         <span class="logo-text">MioDottore</span>
       </div>
       <div class="cover-date">
-        Data: <input style="background:transparent;border:none;border-bottom:1px dashed rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);font-family:'Figtree',sans-serif;font-size:13px;font-weight:500;outline:none;width:100px;text-align:right;" placeholder="gg/mm/aaaa" value="">
+        Data: <input type="text" placeholder="gg/mm/aaaa">
       </div>
     </div>
 
@@ -703,43 +232,45 @@
           <div class="clinic-row">
             <div class="clinic-dot"></div>
             <span class="clinic-label">Studio</span>
-            <input class="clinic-val" placeholder="Nome dello studio / clinica" id="clinicName">
+            <input class="clinic-val" type="text" placeholder="Nome dello studio / clinica">
           </div>
           <div class="clinic-row">
             <div class="clinic-dot"></div>
             <span class="clinic-label">Medico</span>
-            <input class="clinic-val" placeholder="Dr. Nome Cognome" id="doctorName">
+            <input class="clinic-val" type="text" placeholder="Dr. Nome Cognome">
           </div>
           <div class="clinic-row">
             <div class="clinic-dot"></div>
             <span class="clinic-label">Analista</span>
-            <input class="clinic-val" placeholder="Compilato da" id="analystName">
+            <input class="clinic-val" type="text" placeholder="Compilato da">
           </div>
         </div>
       </div>
       <div class="score-badge">
-        <div class="score-num"><input type="number" id="totalScore" min="0" max="100" value="0" oninput="updateTotal()"></div>
+        <div class="score-num"><input type="number" id="totalScore" min="0" max="100" value="0" readonly></div>
         <div class="score-denom">/ 100</div>
         <div class="score-label">Punteggio</div>
       </div>
     </div>
 
-    <!-- CLINIC LOGO UPLOAD -->
-    <div style="padding: 0 48px 28px; display:flex; align-items:center; gap:14px;">
-      <div id="logoBox" onclick="document.getElementById('logoInput').click()" style="width:80px;height:80px;border-radius:10px;border:2px dashed rgba(255,255,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s;flex-shrink:0;overflow:hidden;background:rgba(255,255,255,0.05);">
-        <svg id="logoPlaceholder" width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-bottom:4px;">
-          <rect x="3" y="3" width="18" height="18" rx="3" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-          <circle cx="9" cy="9" r="2" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-          <path d="M3 16 L8 11 L13 16 L17 12 L21 16" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span id="logoPlaceholderText" style="font-size:9px;color:rgba(255,255,255,0.3);font-weight:600;letter-spacing:0.5px;text-align:center;line-height:1.3;">LOGO<br>CLINICA</span>
-        <img id="logoPreview" src="" alt="" style="display:none;width:100%;height:100%;object-fit:contain;padding:6px;">
+    <!-- LOGO CLINICA -->
+    <div class="clinic-logo-area">
+      <div class="logo-drop" id="logoDrop" onclick="document.getElementById('logoFile').click()">
+        <div class="logo-drop-hint" id="logoHint">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="white" stroke-width="1.5"/>
+            <circle cx="9" cy="9" r="2" stroke="white" stroke-width="1.5"/>
+            <path d="M3 16 L8 11 L13 16 L17 12 L21 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>LOGO<br>CLINICA</span>
+        </div>
+        <img id="logoImg" src="" alt="Logo clinica">
       </div>
-      <input type="file" id="logoInput" accept="image/*" style="display:none" onchange="loadLogo(event)">
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px;text-transform:uppercase;">Logo dello studio</span>
-        <span style="font-size:12px;color:rgba(255,255,255,0.25);">Clicca per caricare · PNG o JPG</span>
-        <button onclick="removeLogo()" id="removeLogoBtn" style="display:none;margin-top:4px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:4px;color:rgba(255,255,255,0.4);font-family:'Figtree',sans-serif;font-size:11px;padding:3px 10px;cursor:pointer;">✕ Rimuovi</button>
+      <input type="file" id="logoFile" accept="image/*" style="display:none" onchange="loadLogo(event)">
+      <div class="logo-meta">
+        <span class="logo-meta-label">Logo dello studio</span>
+        <span class="logo-meta-sub">Clicca per caricare — PNG o JPG</span>
+        <button id="removeLogo" onclick="removeLogo()">✕ Rimuovi</button>
       </div>
     </div>
 
@@ -751,39 +282,49 @@
     </div>
   </div>
 
-  <!-- INTRO STATS BAR -->
+  <!-- STATS BAR -->
   <div class="intro-bar">
     <div class="intro-stat">
-      <div class="intro-stat-num"><input type="number" id="s1score" min="0" max="30" value="0" oninput="updateBar(1,30);updateTotal()"> <span style="font-size:14px;font-weight:500;color:#9ca3af;">/30</span></div>
+      <div class="intro-stat-num">
+        <input type="number" id="s1score" min="0" max="30" value="0" oninput="updateBar(1,30);calcTotal()">
+        <span class="intro-stat-denom">/30</span>
+      </div>
       <div class="intro-stat-label">Completezza profilo</div>
     </div>
     <div class="intro-stat">
-      <div class="intro-stat-num"><input type="number" id="s2score" min="0" max="25" value="0" oninput="updateBar(2,25);updateTotal()"> <span style="font-size:14px;font-weight:500;color:#9ca3af;">/25</span></div>
+      <div class="intro-stat-num">
+        <input type="number" id="s2score" min="0" max="25" value="0" oninput="updateBar(2,25);calcTotal()">
+        <span class="intro-stat-denom">/25</span>
+      </div>
       <div class="intro-stat-label">Qualità e fiducia</div>
     </div>
     <div class="intro-stat">
-      <div class="intro-stat-num"><input type="number" id="s3score" min="0" max="25" value="0" oninput="updateBar(3,25);updateTotal()"> <span style="font-size:14px;font-weight:500;color:#9ca3af;">/25</span></div>
+      <div class="intro-stat-num">
+        <input type="number" id="s3score" min="0" max="25" value="0" oninput="updateBar(3,25);calcTotal()">
+        <span class="intro-stat-denom">/25</span>
+      </div>
       <div class="intro-stat-label">Accessibilità</div>
     </div>
     <div class="intro-stat">
-      <div class="intro-stat-num"><input type="number" id="s4score" min="0" max="20" value="0" oninput="updateBar(4,20);updateTotal()"> <span style="font-size:14px;font-weight:500;color:#9ca3af;">/20</span></div>
+      <div class="intro-stat-num">
+        <input type="number" id="s4score" min="0" max="20" value="0" oninput="updateBar(4,20);calcTotal()">
+        <span class="intro-stat-denom">/20</span>
+      </div>
       <div class="intro-stat-label">Visibilità</div>
     </div>
   </div>
 
-  <!-- LEGEND -->
-  <div class="legend" style="margin-top:28px;">
+  <!-- LEGEND — nascosta in stampa -->
+  <div class="legend">
     <span class="legend-label">Stato:</span>
     <span class="legend-item"><span class="legend-dot ld-ok"></span> Presente</span>
     <span class="legend-item"><span class="legend-dot ld-partial"></span> Parziale</span>
     <span class="legend-item"><span class="legend-dot ld-missing"></span> Mancante</span>
-    <span style="margin-left:auto;font-size:11px;color:#c4bfbb;">Clicca su ogni voce per cambiare stato · Aggiungi note sotto ogni elemento</span>
   </div>
 
   <!-- SECTIONS -->
   <div class="sections">
 
-    <!-- S1 -->
     <div class="section s1">
       <div class="section-header">
         <div class="section-header-left">
@@ -794,45 +335,33 @@
           </div>
         </div>
         <div class="section-score-box">
-          <input class="section-score-input" type="number" id="s1display" min="0" max="30" value="0" oninput="syncScore(1,30)">
-          <span class="section-score-sep">/</span>
-          <span class="section-score-max">30</span>
+          <input class="section-score-input" type="number" id="s1d" min="0" max="30" value="0" oninput="syncScore(1,30)">
+          <span class="section-score-sep">/</span><span class="section-score-max">30</span>
         </div>
       </div>
       <div class="section-body">
-        <div class="progress-wrap">
-          <div class="progress-track"><div class="progress-fill s1-bar" id="bar1" style="width:0%"></div></div>
-        </div>
+        <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="bar1" style="width:0%"></div></div></div>
         <div class="checklist">
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Descrizione presente e chiara</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Descrizione presente e chiara</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Servizi inseriti</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Servizi inseriti</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Specializzazioni indicate</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Specializzazioni indicate</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Informazioni aggiornate</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Informazioni aggiornate</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- S2 -->
     <div class="section s2">
       <div class="section-header">
         <div class="section-header-left">
@@ -843,39 +372,29 @@
           </div>
         </div>
         <div class="section-score-box">
-          <input class="section-score-input" type="number" id="s2display" min="0" max="25" value="0" oninput="syncScore(2,25)">
-          <span class="section-score-sep">/</span>
-          <span class="section-score-max">25</span>
+          <input class="section-score-input" type="number" id="s2d" min="0" max="25" value="0" oninput="syncScore(2,25)">
+          <span class="section-score-sep">/</span><span class="section-score-max">25</span>
         </div>
       </div>
       <div class="section-body">
-        <div class="progress-wrap">
-          <div class="progress-track"><div class="progress-fill s2-bar" id="bar2" style="width:0%"></div></div>
-        </div>
+        <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="bar2" style="width:0%"></div></div></div>
         <div class="checklist">
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Recensioni — numero e qualità</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Es. 12 recensioni, media 4.6..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Recensioni — numero e qualità</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Foto presenti e professionali</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Foto presenti e professionali</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Chiarezza del posizionamento</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Chiarezza del posizionamento</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- S3 -->
     <div class="section s3">
       <div class="section-header">
         <div class="section-header-left">
@@ -886,39 +405,29 @@
           </div>
         </div>
         <div class="section-score-box">
-          <input class="section-score-input" type="number" id="s3display" min="0" max="25" value="0" oninput="syncScore(3,25)">
-          <span class="section-score-sep">/</span>
-          <span class="section-score-max">25</span>
+          <input class="section-score-input" type="number" id="s3d" min="0" max="25" value="0" oninput="syncScore(3,25)">
+          <span class="section-score-sep">/</span><span class="section-score-max">25</span>
         </div>
       </div>
       <div class="section-body">
-        <div class="progress-wrap">
-          <div class="progress-track"><div class="progress-fill s3-bar" id="bar3" style="width:0%"></div></div>
-        </div>
+        <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="bar3" style="width:0%"></div></div></div>
         <div class="checklist">
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Agenda online attiva</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Agenda online attiva</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Numero di slot disponibili</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Es. 3 slot settimana prossima..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Numero di slot disponibili</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Copertura oraria adeguata</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Copertura oraria adeguata</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- S4 -->
     <div class="section s4">
       <div class="section-header">
         <div class="section-header-left">
@@ -929,142 +438,131 @@
           </div>
         </div>
         <div class="section-score-box">
-          <input class="section-score-input" type="number" id="s4display" min="0" max="20" value="0" oninput="syncScore(4,20)">
-          <span class="section-score-sep">/</span>
-          <span class="section-score-max">20</span>
+          <input class="section-score-input" type="number" id="s4d" min="0" max="20" value="0" oninput="syncScore(4,20)">
+          <span class="section-score-sep">/</span><span class="section-score-max">20</span>
         </div>
       </div>
       <div class="section-body">
-        <div class="progress-wrap">
-          <div class="progress-track"><div class="progress-fill s4-bar" id="bar4" style="width:0%"></div></div>
-        </div>
+        <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="bar4" style="width:0%"></div></div></div>
         <div class="checklist">
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Parole chiave nella descrizione</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Parole chiave nella descrizione</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Servizi ben nominati e descritti</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Servizi ben nominati e descritti</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
           <div class="check-row" onclick="cycleState(this)">
-            <div class="check-icon">—</div>
-            <span class="check-text">Coerenza con ricerche dei pazienti</span>
-            <span class="check-badge">—</span>
-            <input class="check-note" placeholder="Aggiungi nota..." onclick="event.stopPropagation()">
+            <div class="check-icon">—</div><span class="check-text">Coerenza con ricerche dei pazienti</span><span class="check-badge">—</span>
+            <input class="check-note" placeholder="Nota..." onclick="event.stopPropagation()">
           </div>
         </div>
       </div>
     </div>
 
-  </div><!-- /sections -->
+  </div>
 
   <!-- NOTES -->
   <div class="notes-section">
     <div class="notes-box">
       <div class="notes-title">Azioni consigliate</div>
-      <textarea class="notes-textarea" placeholder="Inserisci qui le principali raccomandazioni per questo studio medico...&#10;&#10;Es. — Aggiornare la descrizione con parole chiave per dermatologia&#10;Es. — Attivare l'agenda online e configurare almeno 5 slot settimanali&#10;Es. — Caricare una foto professionale del medico"></textarea>
+      <textarea class="notes-textarea" placeholder="Inserisci le principali raccomandazioni per questo studio..."></textarea>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="doc-footer">
     <div class="footer-brand">
-      <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
         <path d="M20 3 L24 14 L35.5 10 L28 20 L35.5 30 L24 26 L20 37 L16 26 L4.5 30 L12 20 L4.5 10 L16 14 Z" fill="#00a085"/>
         <path d="M13 21 L18 27 L28 14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span class="footer-brand-text">MioDottore</span>
     </div>
-    <div class="footer-note">Documento riservato — uso interno · miodottore.it</div>
+    <div class="footer-note">Documento riservato · miodottore.it</div>
   </div>
 
-</div><!-- /page -->
-</div><!-- /page-wrapper -->
+</div>
+</div>
 
 <script>
-function loadLogo(event) {
-  const file = event.target.files[0];
+function loadLogo(e) {
+  const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = function(e) {
-    const preview = document.getElementById('logoPreview');
-    const placeholder = document.getElementById('logoPlaceholder');
-    const placeholderText = document.getElementById('logoPlaceholderText');
-    const removeBtn = document.getElementById('removeLogoBtn');
-    preview.src = e.target.result;
-    preview.style.display = 'block';
-    placeholder.style.display = 'none';
-    placeholderText.style.display = 'none';
-    removeBtn.style.display = 'block';
-    document.getElementById('logoBox').style.border = '2px solid rgba(255,255,255,0.15)';
+  reader.onload = function(ev) {
+    const img = document.getElementById('logoImg');
+    const hint = document.getElementById('logoHint');
+    const btn = document.getElementById('removeLogo');
+    const drop = document.getElementById('logoDrop');
+    img.src = ev.target.result;
+    img.style.display = 'block';
+    hint.style.display = 'none';
+    btn.style.display = 'inline-block';
+    drop.style.border = '2px solid rgba(255,255,255,0.15)';
   };
   reader.readAsDataURL(file);
 }
 
 function removeLogo() {
-  document.getElementById('logoPreview').style.display = 'none';
-  document.getElementById('logoPreview').src = '';
-  document.getElementById('logoPlaceholder').style.display = 'block';
-  document.getElementById('logoPlaceholderText').style.display = 'block';
-  document.getElementById('removeLogoBtn').style.display = 'none';
-  document.getElementById('logoBox').style.border = '2px dashed rgba(255,255,255,0.25)';
-  document.getElementById('logoInput').value = '';
+  const img = document.getElementById('logoImg');
+  const hint = document.getElementById('logoHint');
+  const btn = document.getElementById('removeLogo');
+  const drop = document.getElementById('logoDrop');
+  img.src = '';
+  img.style.display = 'none';
+  hint.style.display = 'flex';
+  btn.style.display = 'none';
+  drop.style.border = '2px dashed rgba(255,255,255,0.2)';
+  document.getElementById('logoFile').value = '';
 }
 
-
+function cycleState(row) {
   const states = ['', 'checked', 'partial', 'missing'];
-  const labels = ['—', '✓', '~', '✗'];
-  const badges = ['—', 'Presente', 'Parziale', 'Mancante'];
-  let curr = states.indexOf(row.className.split(' ').find(c => states.includes(c)) || '');
-  if (curr < 0) curr = 0;
+  const icons  = ['—', '✓', '~', '✗'];
+  const labels = ['—', 'Presente', 'Parziale', 'Mancante'];
+  let curr = 0;
+  states.forEach((s, i) => { if (s && row.classList.contains(s)) curr = i; });
   const next = (curr + 1) % states.length;
   states.forEach(s => { if (s) row.classList.remove(s); });
   if (states[next]) row.classList.add(states[next]);
-  row.querySelector('.check-icon').textContent = labels[next];
-  row.querySelector('.check-badge').textContent = badges[next];
+  row.querySelector('.check-icon').textContent = icons[next];
+  row.querySelector('.check-badge').textContent = labels[next];
   const note = row.querySelector('.check-note');
-  if (next > 0) note.classList.add('visible');
-  else note.classList.remove('visible');
+  next > 0 ? note.classList.add('visible') : note.classList.remove('visible');
 }
 
 function updateBar(section, max) {
-  const val = parseInt(document.getElementById('s'+section+'score').value) || 0;
-  const pct = Math.min(100, Math.max(0, (val / max) * 100));
-  document.getElementById('bar'+section).style.width = pct + '%';
-  const disp = document.getElementById('s'+section+'display');
-  if (disp) disp.value = val;
+  const val = Math.min(max, Math.max(0, parseInt(document.getElementById('s'+section+'score').value) || 0));
+  document.getElementById('bar'+section).style.width = (val/max*100) + '%';
+  const d = document.getElementById('s'+section+'d');
+  if (d) d.value = val;
 }
 
 function syncScore(section, max) {
-  const disp = document.getElementById('s'+section+'display');
-  const val = Math.min(max, Math.max(0, parseInt(disp.value) || 0));
-  disp.value = val;
+  const d = document.getElementById('s'+section+'d');
+  const val = Math.min(max, Math.max(0, parseInt(d.value) || 0));
+  d.value = val;
   document.getElementById('s'+section+'score').value = val;
   updateBar(section, max);
-  updateTotal();
+  calcTotal();
 }
 
-function updateTotal() {
-  const s1 = parseInt(document.getElementById('s1score').value) || 0;
-  const s2 = parseInt(document.getElementById('s2score').value) || 0;
-  const s3 = parseInt(document.getElementById('s3score').value) || 0;
-  const s4 = parseInt(document.getElementById('s4score').value) || 0;
-  const total = Math.min(100, s1 + s2 + s3 + s4);
-  document.getElementById('totalScore').value = total;
+function calcTotal() {
+  const t = [1,2,3,4].reduce((sum,i) => sum + (parseInt(document.getElementById('s'+i+'score').value)||0), 0);
+  document.getElementById('totalScore').value = Math.min(100, t);
 }
 
 function resetAll() {
-  if (!confirm('Vuoi resettare tutti i dati del documento?')) return;
-  document.querySelectorAll('input[type=text], input[type=number]').forEach(i => {
-    if (i.id === 'totalScore') i.value = 0;
-    else if (['s1score','s2score','s3score','s4score','s1display','s2display','s3display','s4display'].includes(i.id)) i.value = 0;
-    else i.value = '';
+  if (!confirm('Resettare tutti i dati?')) return;
+  document.querySelectorAll('input[type=text]').forEach(i => i.value = '');
+  [1,2,3,4].forEach(i => {
+    document.getElementById('s'+i+'score').value = 0;
+    document.getElementById('s'+i+'d').value = 0;
+    document.getElementById('bar'+i).style.width = '0%';
   });
+  document.getElementById('totalScore').value = 0;
   document.querySelectorAll('textarea').forEach(t => t.value = '');
   document.querySelectorAll('.check-row').forEach(r => {
     ['checked','partial','missing'].forEach(c => r.classList.remove(c));
@@ -1072,13 +570,8 @@ function resetAll() {
     r.querySelector('.check-badge').textContent = '—';
     r.querySelector('.check-note').classList.remove('visible');
   });
-  [1,2,3,4].forEach(i => document.getElementById('bar'+i).style.width = '0%');
+  removeLogo();
 }
-
-[1,2,3,4].forEach(i => {
-  const maxes = {1:30, 2:25, 3:25, 4:20};
-  updateBar(i, maxes[i]);
-});
 </script>
 </body>
 </html>
